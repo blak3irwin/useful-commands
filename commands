@@ -1,0 +1,50 @@
+***Windows***
+KBOX inventory (from elevated cmd prompt) - "c:\program files (x86)\dell\kace\runkbot.exe" 6 0
+
+***Powershell***
+
+Get-ADUser mirwin -properties * | out-string -stream | Select-String -pattern change
+
+Get-ADComputer lp-cnu352b3yn -Properties *
+
+https://isc.sans.edu/diary/The+Powershell+Diaries+-+Finding+Problem+User+Accounts+in+AD/19833
+
+get-aduser -filter * -properties * | select samaccountname,passwordlastset | out-gridview
+
+get-aduser -filter * -properties * | select samaccountname, name, enabled, scriptpath, passwordlastset, passwordexpired, passwordneverexpires, passwordnotrequired, lockedout, lastlogondate, cannotchangepassword, accountexiprationdate | export-csv "c:\pathspec\account-problems-yy-mm-dd.csv"
+
+http://stackoverflow.com/questions/84847/how-do-i-create-a-self-signed-certificate-for-code-signing-on-windows
+
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /f MySPC.pfx "C:\Users\mirwin\Desktop\get-adcomputer.ps1"
+
+dsquery * domainroot -filter "(&(objectCategory=computer)
+(objectclass=computer) (operatingsystem=*server*))" -limit 0 | Out-GridView
+
+***Apple***
+
+defaults write com.apple.finder AppleShowAllFiles YES
+killall Finder
+
+
+***Linux***
+
+chage -l <username>
+grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" file.txt
+iptables -L -v -n
+rpm -q kernel
+uname -r
+cat /proc/version
+uptime
+cat /etc/group
+cat /etc/passwd
+grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" /cygdrive/c/Users/mirwin/Desktop/gs-emails.txt | sort | uniq
+cat /etc/ssh/sshd_config
+
+
+******olevba*************
+olevba for analyzing macros
+python /usr/local/lib/python2.7/dist-packages/oletools/olevba.py
+
+
+**nmap*
+nmap --script ssl-enum-ciphers -p 443 <host>

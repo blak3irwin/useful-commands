@@ -3,7 +3,7 @@ KBOX inventory (from elevated cmd prompt) - "c:\program files (x86)\dell\kace\ru
 
 ***Powershell***
 
-Get-ADUser mirwin -properties * | out-string -stream | Select-String -pattern change
+Get-ADUser <user> -properties * | out-string -stream | Select-String -pattern change
 
 Get-ADComputer lp-cnu352b3yn -Properties *
 
@@ -15,7 +15,7 @@ get-aduser -filter * -properties * | select samaccountname, name, enabled, scrip
 
 http://stackoverflow.com/questions/84847/how-do-i-create-a-self-signed-certificate-for-code-signing-on-windows
 
-"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /f MySPC.pfx "C:\Users\mirwin\Desktop\get-adcomputer.ps1"
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /f MySPC.pfx "C:\Users\%userprofile%\Desktop\get-adcomputer.ps1"
 
 dsquery * domainroot -filter "(&(objectCategory=computer)
 (objectclass=computer) (operatingsystem=*server*))" -limit 0 | Out-GridView

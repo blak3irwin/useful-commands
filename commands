@@ -1,6 +1,8 @@
 ***Windows***
 KBOX inventory (from elevated cmd prompt) - "c:\program files (x86)\dell\kace\runkbot.exe" 6 0
 
+wmic /node:<ip address> computersystem get username
+
 ***Powershell***
 
 Get-ADUser <user> -properties * | out-string -stream | Select-String -pattern change

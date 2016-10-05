@@ -42,7 +42,10 @@ cat /etc/passwd
 grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" /cygdrive/c/Users/%userprofile%sktop/gs-emails.txt | sort | uniq
 cat /etc/ssh/sshd_config
 
-
+Add CA certificate to Java keystore (from https://azure.microsoft.com/en-us/documentation/articles/java-add-certificate-ca-store/)
+keytool -list -keystore cacerts
+keytool -keystore cacerts -importcert -alias <certalias> -file <certname>.cer
+keytool -list -keystore cacerts
 
 ******olevba*************
 olevba for analyzing macros

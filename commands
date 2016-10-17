@@ -47,6 +47,8 @@ keytool -list -keystore cacerts
 keytool -keystore cacerts -importcert -alias <certalias> -file <certname>.cer
 keytool -list -keystore cacerts
 
+Convert CIDR to list of IPs
+echo 10.1.{1..254}.{1..254} | tr ' ' '\012' > <output file location>
 ******olevba*************
 olevba for analyzing macros
 python /usr/local/lib/python2.7/dist-packages/oletools/olevba.py

@@ -9,6 +9,8 @@ Get-ADUser <user> -properties * | out-string -stream | Select-String -pattern ch
 
 Get-ADComputer <computerusername> -Properties *
 
+Get-ADUser -filter * -SearchBase "OU=<sub-OUs>,OU=<OU>,DC=<domain,DC=COM" -properties EmailAddress,GivenName, surname, OfficePhone, ipPhone , Office, Department, Description | Select-Object EmailAddress,GivenName, surname, OfficePhone, ipPhone , Office, Department, Description | Export-Csv c:\users\<username>\desktop\<filename>.csv
+
 https://isc.sans.edu/diary/The+Powershell+Diaries+-+Finding+Problem+User+Accounts+in+AD/19833
 
 get-aduser -filter * -properties * | select samaccountname,passwordlastset | out-gridview

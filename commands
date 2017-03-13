@@ -69,3 +69,7 @@ sslscan --http <host:port>
 
 ***WPScan***
 wpscan -e vp -u <URL> 
+
+***OpenSSL***
+download TLS certificate from remote host/site
+openssl s_client -connect <hostname>:<port>
